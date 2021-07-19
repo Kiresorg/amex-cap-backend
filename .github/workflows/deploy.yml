@@ -6,6 +6,14 @@
 on:
   release:
     types: [created]
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
 
 env:
   AZURE_WEBAPP_NAME: amex-cap-backend
