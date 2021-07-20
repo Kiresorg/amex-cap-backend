@@ -9,7 +9,7 @@ exports.findAll = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message + " Node env: " + process.env.NODE_ENV || "Some error occurred while retrieving addresses.",
+          err.message || "Some error occurred while retrieving addresses.",
       });
     });
 };
