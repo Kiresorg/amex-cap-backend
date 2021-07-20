@@ -29,10 +29,10 @@ Code changes to the ```main``` branch are only to be accomplished by approval of
 
 PRs may only be approved by Erik/Hou and two designated team leads.
 
-### Workflow for User Stories
+## Workflow for User Stories
 - Select a User Story from the Project Board and move it to "In Progress" on the board
-  - https://github.com/Kiresorg/amex-demo-server/projects/3
-  - https://github.com/Kiresorg/amex-demo-server/projects/4
+  - Sprint 2: https://github.com/Kiresorg/amex-demo-server/projects/3
+  - Sprint 3: https://github.com/Kiresorg/amex-demo-server/projects/4
 - NOTE: You may need to create a user story for your task; review the existing stories well before doing so
 > REMEMBER that we have TWO source control repos - front end and back end. The following branching/merging instructions apply to your work in both branches
 - Front End repo: 
@@ -45,7 +45,17 @@ PRs may only be approved by Erik/Hou and two designated team leads.
   - Example:
 
     ```feature/list-all-customers```
-- Locally, pull repo changes with ```git pull origin```
+- Locally, pull repo changes with ```git pull origin [name-of-feature-branch]```
+
+Example: ```git pull origin feature/list-all-customers```
+- Locally, switch to the branch with ```git switch [name-of-feature-branch]```
+Example: ```git switch feature/list-all-customers```
+- Do your coding work. Commit locally and to the feature branch often. You will NOT trigger a build when committing to the feature branch on Github.
+- When ready to merge your feature branch into ```main```, create a Pull Request out on the appropriate repo (front end or back end)
+
+> NOTE: When creating a PR, pay close attention to branches at the top of the PR; make sure you are requesting a merge FROM the ```feature``` branch INTO the ```main``` branch.
+- Watch your email for comments on your PR
+- When the PR is approved, YOU need to check the production web site to verify your feature works in prod.
 
 ## Live Production Site:
 - Hosted on Azure App Service
