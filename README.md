@@ -65,7 +65,7 @@ Example: ```git switch feature/list-all-customers```
 - MySQL server hosted on Azure
 - Server name: mysql-amex.mysql.database.azure.com
 
-Applying Migrations and Seeders to Production dB
+### Applying Migrations and Seeders to Production dB
 - Only done when model changes occur with the dB
 - Only done AFTER you successfully push new code to the production web app that uses the model changes
 - To do this on the prod dB, you need to change two areas TEMPORARILY:
