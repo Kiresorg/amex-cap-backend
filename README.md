@@ -65,11 +65,17 @@ Example: ```git switch feature/list-all-customers```
 - MySQL server hosted on Azure
 - Server name: mysql-amex.mysql.database.azure.com
 
+## CI/CD pipeline:
+We are using Github Actions for CI/CD. The workflow YAML file is in ```/.github/workflows/deploy.yml```
+> DO NOT MODIFY THE ```deploy.yml```file !!!
+When a push to the main branch occurs, the CI/CD pipeline will be kicked off.
+## Reaching out for help (API)
+- For help on API development, please reach out to Stephanie (API Lead) first; she will reach out to Erik/Hou as needed
 ### Applying Migrations and Seeders to Production dB
-- Only done when model changes occur with the dB
-- Only done AFTER you successfully push new code to the production web app that uses the model changes
-- To do this on the prod dB, you need to change two areas TEMPORARILY:
-    - In the ```src/sequelize/config/config.json``` file, comment out the "development" 
+- WHen you need the production database schema changed, reach out to one of the following, in this order:
+  - Robert (Back End Lead)
+    - Erik
+    - Hou
 
 ## API Endpoints
 | Method | URLs | Actions |
