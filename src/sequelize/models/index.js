@@ -7,9 +7,9 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
-const serverCa = [
-  fs.readFileSync("C:/SSL/BaltimoreCyberTrustRoot.crt.pem", "utf8"),
-];
+// const serverCa = [
+//   fs.readFileSync("C:/SSL/BaltimoreCyberTrustRoot.crt.pem", "utf8"),
+// ];
 
 let sequelize;
 if (config.use_env_variable) {
@@ -18,12 +18,12 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(
     config.database, config.username, config.password, {
       host: config.host,
-      dialect: "mysql",
-      dialectOptions: {
-        ssl: {
-          ca: serverCa
-        }
-      }
+      dialect: "mysql"
+      // dialectOptions: {
+      //   ssl: {
+      //     ca: serverCa
+      //   }
+      // }
     }
   );
 }
