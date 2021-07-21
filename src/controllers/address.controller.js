@@ -14,7 +14,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-exports.createAddress = async (req, res) => {
+exports.create = async (req, res) => {
   try {
     //this will create new address for User
     const newAddress = await Address.create(req.body);
