@@ -7,12 +7,12 @@ module.exports = {
     let customers = [];
     for(let i=0; i<=100; i++){
       customers.push({
-        first_name: fake.customer.streetAddress(),
-        middle_name: fake.customer.secondaryAddress(),
-        last_name: fake.customer.city(),
-        phone: fake.customer.state(),
-        email: fake.customer.zipCode(),
-        notes: fake.customer.
+        first_name: fake.name.firstName(),
+        middle_name: fake.name.middleName(),
+        last_name: fake.name.lastName(),
+        phone: fake.phone.phoneNumber(),
+        email: fake.internet.email(),
+        notes: fake.lorem.sentence(),
         // address_id: fake.customer.
         createdAt:new Date(),
         updatedAt:new Date(),
