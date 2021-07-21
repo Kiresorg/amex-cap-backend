@@ -1,3 +1,6 @@
 ###
 
-GET http://localhost:8080/api/address
+GET http://localhost:8080/api/addresses
+
+###
+GET http://localhost:8080/api/customers
