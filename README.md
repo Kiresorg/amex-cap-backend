@@ -4,9 +4,9 @@
 - clone locally
 - run ```npm install``` to install dependencies
 - create local MySQL database ```csrdb```
+- IMPORTANT: in ```src/sequelize/config/config.json```, change the development password to your own password
 - run migrations from cli: ```npx sequelize-cli db:migrate```
 - run seeders from cli: ```npx sequelize-cli db:seed:all```
-- IMPORTANT: in ```src/sequelize/config/config.json```, change the development password to your own
 - start app with ```npm start```
 - app local URL is ```localhost:8080```
 - test GET all addresses endpoint from ```/http/addresses.http```
@@ -51,7 +51,9 @@ Example: ```git pull origin feature/list-all-customers```
 - Locally, switch to the branch with ```git switch [name-of-feature-branch]```
 Example: ```git switch feature/list-all-customers```
 - Do your coding work. Commit locally and to the feature branch often. You will NOT trigger a build when committing to the feature branch on Github.
-- When ready to merge your feature branch into ```main```, create a Pull Request out on the appropriate repo (front end or back end)
+- When ready to merge your feature branch into ```main```, do the following:
+  - Sync any changes in ```main``` into your feature branch as described here: https://www.togaware.com/linux/survivor/Git_Merge_Master_into.html. Make sure you resolve any conflicts.
+  - create a Pull Request out on the appropriate repo (front end or back end)
 
 > NOTE: When creating a PR, pay close attention to branches at the top of the PR; make sure you are requesting a merge FROM the ```feature``` branch INTO the ```main``` branch.
 - Watch your email for comments on your PR
