@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:8081",
 };
 
 app.use(cors(corsOptions));
@@ -21,7 +21,8 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the Amex CSR API." });
 });
 
-require('./src/routers/address.route')(app);
+require("./src/routers/address.route")(app);
+require("./src/routers/product.route")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
