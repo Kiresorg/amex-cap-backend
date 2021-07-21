@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Ninaombakufungua90!1",
+    "password": "Standbyme22",
     "database": "csrdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "kiresorg@mysql-amex",
+    "password": "Amex2021",
+    "database": "csrdb",
+    "host": "mysql-amex.mysql.database.azure.com",
     "dialect": "mysql"
   }
 }
