@@ -4,9 +4,9 @@
 - clone locally
 - run ```npm install``` to install dependencies
 - create local MySQL database ```csrdb```
+- IMPORTANT: in ```src/sequelize/config/config.json```, change the development password to your own password
 - run migrations from cli: ```npx sequelize-cli db:migrate```
 - run seeders from cli: ```npx sequelize-cli db:seed:all```
-- IMPORTANT: in ```src/sequelize/config/config.json```, change the development password to your own
 - start app with ```npm start```
 - app local URL is ```localhost:8080```
 - test GET all addresses endpoint from ```/http/addresses.http```
