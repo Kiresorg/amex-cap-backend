@@ -1,11 +1,14 @@
-'use strict';
+"use strict";
 
-const fake = require('faker');
+const fake = require("faker");
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     let customers = [];
-    for(let i=0; i<=100; i++){
+    let addresses = await queryInterface.sequelize.query(
+      `SELECT id from Addresses;`
+    );
+    for (let i = 0; i <= 100; i++) {
       customers.push({
         first_name: fake.name.firstName(),
         middle_name: fake.name.middleName(),
@@ -13,12 +16,12 @@ module.exports = {
         phone: fake.phone.phoneNumber(),
         email: fake.internet.email(),
         notes: fake.lorem.sentence(),
-        // address_id: fake.customer.
-        createdAt:new Date(),
-        updatedAt:new Date(),
+        address_id: addresses[0][Math.floor(Math.random()*addresses[0].length)].id,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       });
     }
-     await queryInterface.bulkInsert('Customers',customers, {})
+    await queryInterface.bulkInsert("Customers", customers, {});
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -28,5 +31,5 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-  }
+  },
 };
