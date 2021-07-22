@@ -4,11 +4,19 @@ const cors = require("cors");
 
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:8081"
-};
+// const whitelist = ["http://localhost:3000", "https://dronology.herokuapp.com"];
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
@@ -21,7 +29,8 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the Amex CSR API." });
 });
 
-require('./src/routers/address.route')(app);
+require("./src/routers/address.route")(app);
+require("./src/routers/product.route")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

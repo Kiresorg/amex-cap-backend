@@ -4,9 +4,9 @@
 - clone locally
 - run ```npm install``` to install dependencies
 - create local MySQL database ```csrdb```
+- IMPORTANT: in ```src/sequelize/config/config.json```, change the development password to your own password
 - run migrations from cli: ```npx sequelize-cli db:migrate```
 - run seeders from cli: ```npx sequelize-cli db:seed:all```
-- IMPORTANT: in ```src/sequelize/config/config.json```, change the development password to your own
 - start app with ```npm start```
 - app local URL is ```localhost:8080```
 - test GET all addresses endpoint from ```/http/addresses.http```
@@ -29,10 +29,10 @@ Code changes to the ```main``` branch are only to be accomplished by approval of
 
 PRs may only be approved by Erik/Hou and two designated team leads.
 
-### Workflow for User Stories
+## Workflow for User Stories
 - Select a User Story from the Project Board and move it to "In Progress" on the board
-  - https://github.com/Kiresorg/amex-demo-server/projects/3
-  - https://github.com/Kiresorg/amex-demo-server/projects/4
+  - Sprint 2: https://github.com/Kiresorg/amex-demo-server/projects/3
+  - Sprint 3: https://github.com/Kiresorg/amex-demo-server/projects/4
 - NOTE: You may need to create a user story for your task; review the existing stories well before doing so
 > REMEMBER that we have TWO source control repos - front end and back end. The following branching/merging instructions apply to your work in both branches
 - Front End repo: 
@@ -45,7 +45,19 @@ PRs may only be approved by Erik/Hou and two designated team leads.
   - Example:
 
     ```feature/list-all-customers```
-- Locally, pull repo changes with ```git pull origin```
+- Locally, pull repo changes with ```git pull origin [name-of-feature-branch]```
+
+Example: ```git pull origin feature/list-all-customers```
+- Locally, switch to the branch with ```git switch [name-of-feature-branch]```
+Example: ```git switch feature/list-all-customers```
+- Do your coding work. Commit locally and to the feature branch often. You will NOT trigger a build when committing to the feature branch on Github.
+- When ready to merge your feature branch into ```main```, do the following:
+  - Sync any changes in ```main``` into your feature branch as described here: https://www.togaware.com/linux/survivor/Git_Merge_Master_into.html. Make sure you resolve any conflicts.
+  - create a Pull Request out on the appropriate repo (front end or back end)
+
+> NOTE: When creating a PR, pay close attention to branches at the top of the PR; make sure you are requesting a merge FROM the ```feature``` branch INTO the ```main``` branch.
+- Watch your email for comments on your PR
+- When the PR is approved, YOU need to check the production web site to verify your feature works in prod.
 
 ## Live Production Site:
 - Hosted on Azure App Service
@@ -55,11 +67,17 @@ PRs may only be approved by Erik/Hou and two designated team leads.
 - MySQL server hosted on Azure
 - Server name: mysql-amex.mysql.database.azure.com
 
-Applying Migrations and Seeders to Production dB
-- Only done when model changes occur with the dB
-- Only done AFTER you successfully push new code to the production web app that uses the model changes
-- To do this on the prod dB, you need to change two areas TEMPORARILY:
-    - In the ```src/sequelize/config/config.json``` file, comment out the "development" 
+## CI/CD pipeline:
+We are using Github Actions for CI/CD. The workflow YAML file is in ```/.github/workflows/deploy.yml```
+> DO NOT MODIFY THE ```deploy.yml```file !!!
+When a push to the main branch occurs, the CI/CD pipeline will be kicked off.
+## Reaching out for help (API)
+- For help on API development, please reach out to Stephanie (API Lead) first; she will reach out to Erik/Hou as needed
+### Applying Migrations and Seeders to Production dB
+- WHen you need the production database schema changed, reach out to one of the following, in this order:
+  - Robert (Back End Lead)
+    - Erik
+    - Hou
 
 ## API Endpoints
 | Method | URLs | Actions |
