@@ -14,7 +14,7 @@ exports.findAll = (req, res) => {
 };
 
 // DELETE addressId
-exports.deleteAddressId = (req, res) => {
+exports.delete = (req, res) => {
   // delete storage instance of Address IDs to remove reference from object
   const id = req.params.id;
   Address.destroy({
@@ -56,4 +56,3 @@ exports.create = async (req, res) => {
     })
   }
 }
-
