@@ -5,6 +5,3 @@ GET http://localhost:8080/api/address/
 ### DELETE address
 
 DELETE http://localhost:8080/api/address/
-
-### PUT
-PUT http://localhost:8080/api/customer/10

@@ -7,7 +7,7 @@ module.exports = (app) => {
   router.get("/", addresses.findAll);
 
   // DELETE address ID
-  router.delete("/", addresses.deleteAll);
+  router.delete("/:id", addresses.deleteAddressId);
 
   app.use("/api/address", router);
 };
