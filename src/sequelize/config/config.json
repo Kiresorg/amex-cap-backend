@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "BeefTenderloin12@",
+    "password": "brandon316",
     "database": "csrdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
