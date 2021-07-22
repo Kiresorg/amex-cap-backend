@@ -1,3 +1,9 @@
 ###
 
-GET http://localhost:8080/api/customers
+GET http://localhost:8080/api/customers/all
+
+###
+
+GET http://localhost:8080/api/customers?count=5
+
+

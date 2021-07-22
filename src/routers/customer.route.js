@@ -1,9 +1,9 @@
 module.exports = (app) => {
   const customers = require("../controllers/customer.controller");
 
-  var router = require("express").Router();
-
-  router.get("/", customers.findAll);
-
+  const router = require("express").Router();
   app.use("/api/customers", router);
+
+  router.get("/all", customers.findAll);
+  router.get("/", customers.findAllByCount);
 };
