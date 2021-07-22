@@ -2,7 +2,7 @@
 
 GET http://localhost:8080/api/addresses
 
-###
+### Update existing address
 
 PUT http://localhost:8080/api/addresses/2
 Content-Type:application/json
