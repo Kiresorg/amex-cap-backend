@@ -13,3 +13,4 @@ exports.findAll = (req, res) => {
       });
     });
 };
+  
