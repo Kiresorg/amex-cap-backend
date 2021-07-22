@@ -13,3 +13,21 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+exports.update = (req, res) => {
+  Address.update({
+      address_line_1: req.body.address_line1,
+      address_line_2: req.body.address_line2,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip
+  }, {
+      where: {
+          id: req.params.id
+      }
+  }).then (result => {
+      res.status(200).send(result);
+  }).catch (error => {
+      res.status(500).send("Error on updating address with id of" + req.params.id + ": " + error);
+  })
+}
