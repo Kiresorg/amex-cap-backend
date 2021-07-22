@@ -2,6 +2,9 @@ const db = require("../sequelize/models");
 const Customer = db.Customer;
 
 const findAll = (req, res) => {
+
+  // Check for existence of a query string - if none, just call dB with .findAll. 
+  // Else, use query string and call .findAndCountAll
   console.log(req.query.count);
 
   Customer.findAndCountAll({
