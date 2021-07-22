@@ -21,9 +21,9 @@ exports.deleteAddressId = (req, res) => {
     where: { id: id }
   })
     .then((data) => {
-      if (data !== 1) {
+      if (data === 1) {
         res.send({
-          message: `Address IDs NOT deleted successfully. Try Again!`,
+          message: `Address IDs deleted successfully.`,
         });
       }
     })

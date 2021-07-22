@@ -4,4 +4,4 @@ GET http://localhost:8080/api/addresses
 
 ### DELETE address by ID
 
-DELETE http://localhost:8080/api/addresses/10
+DELETE http://localhost:8080/api/addresses/203
