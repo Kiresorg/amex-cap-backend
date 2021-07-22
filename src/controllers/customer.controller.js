@@ -13,3 +13,7 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+exports.create = (req, res) => {
+  res.send("you have reached the controller");
+};
