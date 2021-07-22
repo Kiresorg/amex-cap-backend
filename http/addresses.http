@@ -1,3 +1,16 @@
 ###
 
-GET http://localhost:8080/api/address
+GET http://localhost:8080/api/addresses
+
+### Create New Address
+POST http://localhost:8080/api/addresses
+Content-Type: application/json
+
+{
+  "address_line_1": "123 sulkins lane",
+  "address_line_2": "Apt 3",
+  "city": "NYC",
+  "state": "New York",
+  "zip": "10001"
+}
+
