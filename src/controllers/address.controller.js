@@ -28,8 +28,8 @@ exports.create = async (req, res) => {
 
   }catch(error){
     //if unsuccessful send 400 status code, and error message
-    res.status(400).json({
-      status: 400,
+    res.status(500).json({
+      statusCode: 500,
       error: error || "An error has occurred and Address could not be created"
     })
   }
