@@ -1,2 +1,3 @@
-/node_modules
-/src/sequelize/config/config.json
+/node_modules/
+
+/scr/sequelize/config/config.json
