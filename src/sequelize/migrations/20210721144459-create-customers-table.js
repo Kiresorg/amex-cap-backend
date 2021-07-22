@@ -25,7 +25,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       notes: {
-        type: Sequelize.STRING(1000)
+        type: Sequelize.STRING(1000),
       },
       address_id: {
         type: Sequelize.INTEGER,
@@ -33,6 +33,7 @@ module.exports = {
           model: "Addresses",
           key: "id",
         },
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,
