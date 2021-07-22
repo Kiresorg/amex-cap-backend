@@ -8,11 +8,33 @@ exports.findAll = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving addresses.",
+        message: err.message || "Error occurred while retrieving addresses.",
       });
     });
 };
+
+// DELETE addressId
+exports.delete = (req, res) => {
+  // delete storage instance of Address IDs to remove reference from object
+  const id = req.params.id;
+  Address.destroy({
+    where: { id: id },
+  })
+    .then((data) => {
+      if (data === 1) {
+        res.send({
+          message: `Address ID ${id} deleted successfully.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || `Error occurred while deleting address IDs ${id}.`,
+      });
+    });
+};
+
 
 exports.create = async (req, res) => {
   try {
