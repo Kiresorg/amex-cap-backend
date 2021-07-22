@@ -18,12 +18,12 @@ exports.deleteAddressId = (req, res) => {
   // delete storage instance of Address IDs to remove reference from object
   const id = req.params.id;
   Address.destroy({
-    where: { id: id }
+    where: { id: id },
   })
     .then((data) => {
       if (data === 1) {
         res.send({
-          message: `Address IDs deleted successfully.`,
+          message: `Address ID ${id} deleted successfully.`,
         });
       }
     })
