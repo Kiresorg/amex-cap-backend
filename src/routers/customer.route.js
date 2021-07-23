@@ -3,6 +3,11 @@ module.exports = (app) => {
 
   var router = require("express").Router();
 
+  router.get("/:id", customers.findById);
+
+  router.delete("/:id", customers.delete);
+  // router.get("/all", customers.findAll);
+
   router.get("/", customers.findAll);
 
    // Retrieve a single customer with email
