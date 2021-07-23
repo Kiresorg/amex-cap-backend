@@ -47,3 +47,22 @@ exports.findById = (req, res) => {
     })
   })
 };
+
+exports.update = (req, res) => {
+  Customer.update({
+    first_name: req.body.first_name,
+    middle_name: req.body.middle_name,
+    last_name: req.body.last_name,
+    phone: req.body.phone,
+    email: req.body.email,
+    notes: req.body.notes,
+  },{
+    where: {
+      id: req.params.id
+    }
+  }).then (result => {
+      res.status(200).send(result);
+  }).catch (error => {
+      res.status(500).send("Couldn't update customer with id of" + req.params.id + ":");
+  })
+}

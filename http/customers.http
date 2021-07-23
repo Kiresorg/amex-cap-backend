@@ -9,3 +9,17 @@ GET http://localhost:8080/api/customers/102
 ###
 
 GET http://localhost:8080/api/customers?count=5
+
+### Edit Customer by Id
+
+PUT http://localhost:8080/api/customers/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "first_name": "Jim",
+    "middle_name": "",
+    "last_name": "Liriano",
+    "phone": "212-123-4567",
+    "email": "jim.liriano@gmail.com",
+    "notes": "this is a test"
+}
