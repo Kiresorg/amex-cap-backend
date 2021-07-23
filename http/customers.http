@@ -1,9 +1,14 @@
-###
+### get all customers
+GET http://localhost:8080/api/customers
 
-GET http://localhost:8080/api/customers/all
+### GET customer by ID
+GET http://localhost:8080/api/customers/102
 
-###
+### search by email
+GET http://localhost:8080/api/customers?email=hotmail
 
+### delete by id
+DELETE http://localhost:8080/api/customers/2
+
+### get with pagination
 GET http://localhost:8080/api/customers?count=5
-
-

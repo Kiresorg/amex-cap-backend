@@ -1,9 +1,16 @@
 module.exports = (app) => {
   const customers = require("../controllers/customer.controller");
 
-  const router = require("express").Router();
-  app.use("/api/customers", router);
+  var router = require("express").Router();
 
-  router.get("/all", customers.findAll);
-  router.get("/", customers.findAllByCount);
+  router.get("/:id", customers.findById);
+
+  router.delete("/:id", customers.delete);
+  // router.get("/all", customers.findAll);
+
+  router.get("/", customers.findAll);
+
+   // Retrieve a single customer with email
+
+  app.use("/api/customers", router);
 };
