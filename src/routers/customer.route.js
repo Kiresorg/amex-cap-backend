@@ -10,5 +10,7 @@ module.exports = (app) => {
 
   router.get("/", customers.findAll);
 
+   // Retrieve a single customer with email
+
   app.use("/api/customers", router);
 };
