@@ -54,9 +54,9 @@ exports.delete = (req, res) => {
     where: { id: id },
   })
     .then((data) => {
-      res.status(200).send({ message: "customer has been deleted", data });
+      res.status(200).send({ data });
     })
     .catch((err) => {
-      res.status(500).send("error in deleting customer", err);
+      res.status(500).send(err);
     });
 };
