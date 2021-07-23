@@ -21,5 +21,6 @@ Content-Type: application/json
     "last_name": "Liriano",
     "phone": "212-123-4567",
     "email": "jim.liriano@gmail.com",
-    "notes": "this is a test"
+    "notes": "this is a test",
+    "address_id": 148
 }
