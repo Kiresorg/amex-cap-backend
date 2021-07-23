@@ -9,15 +9,14 @@ exports.findAll = (req, res) => {
       offset: req.query.page
         ? (Number(req.query.page) - 1) * Number(req.query.count)
         : 0,
-      order: req.query.order ? [[req.query.order, "DESC"]] : ["id"],
+      order: req.query.order ? [[req.query.order]] : ["id"],
     })
       .then((data) => {
         res.send(data);
       })
       .catch((err) => {
         res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving customers.",
+          message: "Some error occurred while retrieving customers.",
         });
       });
   } else {
@@ -27,8 +26,7 @@ exports.findAll = (req, res) => {
       })
       .catch((err) => {
         res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving customers.",
+          message: "Some error occurred while retrieving customers.",
         });
       });
   }

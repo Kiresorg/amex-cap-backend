@@ -6,11 +6,11 @@ GET http://localhost:8080/api/customers
 DELETE http://localhost:8080/api/customers/2
 ### GET customer by ID
 
-GET http://localhost:8080/api/customers/102
+GET http://localhost:8080/api/customers/55
 
 ###
-GET http://localhost:8080/api/customers?count=5&page=2
+GET http://localhost:8080/api/customers?count=4&page=2
 
 ###
-GET http://localhost:8080/api/customers?count=5&order=updatedAt
+GET http://localhost:8080/api/customers?count=200&order=updatedAt
 
