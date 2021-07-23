@@ -13,6 +13,5 @@ Content-Type: application/json
     "last_name": "Ko",
     "phone": "12347567",
     "email": "abc@abc.com",
-    "notes": "awesome",
-    "address_id": 101
+    "notes": "awesome"
 }
