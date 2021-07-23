@@ -7,8 +7,11 @@ module.exports = (app) => {
 
   router.put("/:id", customers.update);
 
-  // router.get("/all", customers.findAll);
   router.get("/", customers.findAll);
 
+  router.delete("/:id", customers.delete);
+
+  router.post("/", customers.create);
+  
   app.use("/api/customers", router);
 };

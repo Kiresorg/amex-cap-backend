@@ -1,5 +1,7 @@
+const { Sequelize } = require("../sequelize/models");
 const db = require("../sequelize/models");
 const Customer = db.Customer;
+const Op = Sequelize.Op;
 
 exports.findAllByCount = (req, res) => {
   Customer.findAndCountAll({
@@ -17,15 +19,44 @@ exports.findAllByCount = (req, res) => {
     });
 };
 
-exports.findAll = (req, res) => {
-  Customer.findAll()
-    .then((data) => {
-      res.send(data);
+exports.create = (req, res) => {
+  let first_name = req.body.first_name;
+  let middle_name = req.body.middle_name;
+  let last_name = req.body.last_name;
+  let phone = req.body.phone;
+  let email = req.body.email;
+  let notes = req.body.notes;
+  let addressID = req.body.addressId;
+
+  Customer.create({
+    first_name: first_name,
+    middle_name: middle_name,
+    last_name: last_name,
+    phone: phone,
+    email: email,
+    notes: notes,
+    address_id: addressID,
+  })
+    .then((result) => {
+      res.status(200).send(result);
     })
-    .catch((err) => {
+    .catch((error) => {
+      res.status(500).send("Error on create address: " + error);
+    });
+};
+
+exports.findAll = (req, res) => {
+  const email = req.query.email;
+  var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
+
+  Customer.findAll({ where: condition })
+    .then(data => {
+      res.status(200).send(data);
+    })
+    .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving customers.",
+          err.message || "Some error occurred while retrieving customer."
       });
     });
 };
@@ -44,6 +75,22 @@ exports.findById = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while retrieving customers.",
+      });
+    });
+};
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  Customer.destroy({
+    where: { id: id },
+  })
+    .then((data) => {
+      res.status(200).send({ data });
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while deleting a customer.",
       });
     });
 };
