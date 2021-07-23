@@ -4,6 +4,5 @@ module.exports = (app) => {
   const router = require("express").Router();
   app.use("/api/customers", router);
 
-  router.get("/all", customers.findAll);
   router.get("/", customers.findAllByCount);
 };
