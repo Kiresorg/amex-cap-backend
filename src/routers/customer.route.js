@@ -7,7 +7,7 @@ module.exports = (app) => {
   
   router.delete("/:id", customers.delete);
 
-  router.get("/", customers.findAllByCount);
+  router.get("/", customers.findAll);
 
   //router.post("/", customers.create);
 
