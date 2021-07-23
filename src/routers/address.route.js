@@ -1,28 +1,23 @@
 module.exports = app => {
     const addresses = require("../controllers/address.controller");
-
+  
     var router = require("express").Router();
-
-    // Create a new Tutorial
+  
+    // Create a new Address
     router.post("/", addresses.create);
-
-    // Retrieve all Tutorials
+  
+    // Retrieve all Addresses
     router.get("/", addresses.findAll);
-
-    // Retrieve all published Tutorials
-    // router.get("/published", tutorials.findAllPublished);
-
+  
     // Retrieve a single Tutorial with id
     // router.get("/:id", tutorials.findOne);
-
-    // Update a Tutorial with id
-    // router.put("/:id", tutorials.update);
-
-    // Delete a Tutorial with id
-    // router.delete("/:id", tutorials.delete);
-
-    // Create a new Tutorial
-    // router.delete("/", tutorials.deleteAll);
-
+  
+    // Update an address with id
+    router.put("/:id", addresses.update);
+  
+    // Delete an Address with id
+    router.delete("/:id", addresses.delete);
+  
     app.use('/api/addresses', router);
   };
+

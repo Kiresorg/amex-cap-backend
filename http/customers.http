@@ -1,5 +1,4 @@
-###
-
+### get all customers
 GET http://localhost:8080/api/customers
 
 ### create a new customer
@@ -16,3 +15,15 @@ Content-Type: application/json
     "notes": "awesome",
     "addressId": 102
 }
+
+### GET customer by ID
+GET http://localhost:8080/api/customers/102
+
+### search by email
+GET http://localhost:8080/api/customers?email=hotmail
+
+### delete by id
+DELETE http://localhost:8080/api/customers/2
+
+### get with pagination
+GET http://localhost:8080/api/customers?count=5
