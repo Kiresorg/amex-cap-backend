@@ -1,15 +1,18 @@
-###
+### GET address
 
 GET http://localhost:8080/api/addresses
 
+### DELETE address by ID
 
-str => {
-   const map = new Map();
-   for(let i = 0; i < str.length; i++){
-      if(map.has(str[i])){
-         return map.get(str[i]);
-      };
-      map.set(str[i], i);
-   };
-   return -1;
-};
+DELETE http://localhost:8080/api/addresses/85
+### Create New Address
+POST http://localhost:8080/api/addresses
+Content-Type: application/json
+
+{
+  "address_line_1": "123 sulkins lane",
+  "address_line_2": "Apt 3",
+  "city": "NYC",
+  "state": "New York",
+  "zip": "10001"
+}
