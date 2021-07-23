@@ -12,3 +12,10 @@ module.exports = app => {
     // Update customer by Id
     router.put("/:id", customerController.update);
 }
+  router.get("/:id", customers.findById);
+
+  app.use("/api/customers", router);
+
+  router.get("/all", customers.findAll);
+  router.get("/", customers.findAllByCount);
+};
