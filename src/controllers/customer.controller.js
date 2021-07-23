@@ -1,7 +1,7 @@
 const db = require("../sequelize/models");
 const Customer = db.Customer;
 
-const findAllByCount = (req, res) => {
+exports.findAllByCount = (req, res) => {
   Customer.findAndCountAll({
     where: {},
     limit: Number(req.query.count),

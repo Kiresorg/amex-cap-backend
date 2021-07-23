@@ -5,8 +5,7 @@ module.exports = (app) => {
 
   router.get("/:id", customers.findById);
 
-  app.use("/api/customers", router);
-
-  router.get("/all", customers.findAll);
   router.get("/", customers.findAllByCount);
+
+  app.use("/api/customers", router);
 };
