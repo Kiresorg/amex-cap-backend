@@ -1,7 +1,7 @@
 const db = require("../sequelize/models");
 const Customer = db.Customer;
 
-const findAllByCount = (req, res) => {
+exports.findAllByCount = (req, res) => {
   Customer.findAndCountAll({
     where: {},
     limit: Number(req.query.count),
@@ -17,7 +17,7 @@ const findAllByCount = (req, res) => {
     });
 };
 
-const findAll = (req, res) => {
+exports.findAll = (req, res) => {
   Customer.findAll()
     .then((data) => {
       res.send(data);
@@ -31,19 +31,35 @@ const findAll = (req, res) => {
 };
 
 exports.findById = (req, res) => {
-  const id = req.params.id
-  Customer.findAll({where: {id:id}})
-  .then(data => {
-    if(data.length === 0){
-      res.status(404).send({message: "Customer does not exist"})
-    }
-    else{
-      res.send({data})
-    }
-  }).catch(err => {
-    res.status(500).send({
-      message: err.message || "Some error occurred while retrieving customers.",
-      
+  const id = req.params.id;
+  Customer.findAll({ where: { id: id } })
+    .then((data) => {
+      if (data.length === 0) {
+        res.status(404).send({ message: "Customer does not exist" });
+      } else {
+        res.send({ data });
+      }
     })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving customers.",
+      });
+    });
+};
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  Customer.destroy({
+    where: { id: id },
   })
+    .then((data) => {
+      res.status(200).send({ data });
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while deleting a customer.",
+      });
+    });
 };

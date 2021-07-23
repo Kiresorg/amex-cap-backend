@@ -2,6 +2,8 @@
 
 GET http://localhost:8080/api/customers
 
+###
+DELETE http://localhost:8080/api/customers/2
 ### GET customer by ID
 
 GET http://localhost:8080/api/customers/102

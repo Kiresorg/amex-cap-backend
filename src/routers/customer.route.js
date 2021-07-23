@@ -5,8 +5,10 @@ module.exports = (app) => {
 
   router.get("/:id", customers.findById);
 
-  app.use("/api/customers", router);
+  router.delete("/:id", customers.delete);
+  // router.get("/all", customers.findAll);
 
-  router.get("/all", customers.findAll);
-  router.get("/", customers.findAllByCount);
+  router.get("/", customers.findAll);
+
+  app.use("/api/customers", router);
 };
