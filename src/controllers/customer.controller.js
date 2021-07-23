@@ -18,10 +18,11 @@ exports.findById = (req, res) => {
   Customer.findAll({where: {id:id}})
   .then(data => {
     if(data.length === 0){
-      res.send({message: "Customer does not exist"})
+
+      res.status(404).send({message: "Customer does not exist"})
     }
     else{
-      res.send({message: "Customer has been found", data})
+      res.send({data})
     }
   }).catch(err => {
     res.status(500).send({
