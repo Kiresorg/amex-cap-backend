@@ -1,5 +1,5 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
@@ -19,10 +19,10 @@ const app = express();
 app.use(cors());
 
 // parse requests of content-type - application/json
-app.use(bodyParser.json());
+app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 
 require("./src/routers/address.route")(app);
 require("./src/routers/product.route")(app);
+require("./src/routers/customer.route")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

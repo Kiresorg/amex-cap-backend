@@ -1,0 +1,11 @@
+###
+
+GET http://localhost:8080/api/customers
+
+### GET customer by ID
+
+GET http://localhost:8080/api/customers/102
+
+###
+
+GET http://localhost:8080/api/customers?count=5
