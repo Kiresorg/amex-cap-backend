@@ -3,8 +3,10 @@ module.exports = (app) => {
 
   var router = require("express").Router();
 
-  router.get("/", customers.findAll);
-
   router.get("/:id", customers.findById);
+
   app.use("/api/customers", router);
+
+  router.get("/all", customers.findAll);
+  router.get("/", customers.findAllByCount);
 };
