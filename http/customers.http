@@ -2,5 +2,15 @@
 
 GET http://localhost:8080/api/customers
 
+<<<<<<< HEAD
 ###
 DELETE http://localhost:8080/api/customers/1
+=======
+### GET customer by ID
+
+GET http://localhost:8080/api/customers/102
+
+###
+
+GET http://localhost:8080/api/customers?count=5
+>>>>>>> fa506a26fe6612a7c5fa68e46c7f61f0ee589a17
