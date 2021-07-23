@@ -22,15 +22,6 @@ exports.delete = (req, res) => {
       res.send({ message: "customer has been deleted", data });
     })
     .catch((err) => {
-      res.send(err);
+      res.send("error in deleteing customer", err);
     });
-  // (err, customer) => {
-  //   if (error) {
-  //     res.send("error with deleting");
-  //   } else {
-  //     console.log(customer);
-  //     res.status(204);
-  //   }
-  // }
-  // );
 };
