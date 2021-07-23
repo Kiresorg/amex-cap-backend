@@ -35,22 +35,31 @@ exports.delete = (req, res) => {
     });
 };
 
-exports.create = async (req, res) => {
-  try {
-    //this will create new address for User
-    const newAddress = await Address.create(req.body);
+exports.update = (req, res) => {
+  Address.update({
+      address_line_1: req.body.address_line_1,
+      address_line_2: req.body.address_line_2,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip
+  }, {
+      where: {
+          id: req.params.id
+      }
+  }).then (result => {
+      res.status(200).send(result);
+  }).catch (error => {
+      res.status(500).send("Error on updating address with id of" + req.params.id + ": " + error);
+  })
+}
 
-    //if successful send status code, message, and request
-    res.status(201).json({
-      statusCode: 201,
-      message: "Address Has Been Created",
-      newAddress,
-    });
-  } catch (error) {
-    //if unsuccessful send 400 status code, and error message
-    res.status(500).json({
-      statusCode: 500,
-      error: error || "An error has occurred and Address could not be created",
-    });
-  }
-};
+exports.create = (req, res) => {
+    //this will create new address for User
+    Address.create(req.body)
+    .then(data =>{
+      res.status(201).send(data)
+    })
+    .catch(error =>{
+      res.status(500).send({message: "An error has occurred and Address could not be created"})
+    })
+}

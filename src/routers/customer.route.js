@@ -4,10 +4,12 @@ module.exports = (app) => {
   var router = require("express").Router();
 
   router.get("/:id", customers.findById);
-
+  
   router.delete("/:id", customers.delete);
 
-  router.get("/", customers.findAll);
+  router.get("/", customers.findAllByCount);
+
+  //router.post("/", customers.create);
 
   app.use("/api/customers", router);
 };

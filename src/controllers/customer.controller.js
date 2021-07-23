@@ -1,5 +1,7 @@
+const { Sequelize } = require("../sequelize/models");
 const db = require("../sequelize/models");
 const Customer = db.Customer;
+const Op = Sequelize.Op;
 
 exports.findAll = (req, res) => {
   if (!isNaN(Number(req.query.count && !isNaN(Number(req.query.page))))) {
