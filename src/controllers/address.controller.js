@@ -43,6 +43,6 @@ exports.create = (req, res) => {
       res.status(201).send(data)
     })
     .catch(error =>{
-      res.status(500).send({message: error || "An error has occurred and Address could not be created"})
+      res.status(500).send({message: "An error has occurred and Address could not be created"})
     })
 }
