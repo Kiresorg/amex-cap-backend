@@ -9,5 +9,5 @@ module.exports = (app) => {
 
   router.get("/", customers.findAll);
 
-  app.use('/api/customers', router);
+  app.use("/api/customers", router);
 };

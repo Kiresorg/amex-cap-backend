@@ -12,5 +12,5 @@ GET http://localhost:8080/api/customers/102
 GET http://localhost:8080/api/customers?count=5&page=2
 
 ###
-GET http://localhost:8080/api/customers?count=5&order=true
+GET http://localhost:8080/api/customers?count=5&order=updatedAt
 
