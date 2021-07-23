@@ -53,22 +53,13 @@ exports.update = (req, res) => {
   })
 }
 
-exports.create = async (req, res) => {
-  try {
+exports.create = (req, res) => {
     //this will create new address for User
-    const newAddress = await Address.create(req.body);
-
-    //if successful send status code, message, and request
-    res.status(201).json({
-      statusCode: 201,
-      message: "Address Has Been Created",
-      newAddress,
-    });
-  } catch (error) {
-    //if unsuccessful send 400 status code, and error message
-    res.status(500).json({
-      statusCode: 500,
-      error: error || "An error has occurred and Address could not be created",
-    });
-  }
-};
+    Address.create(req.body)
+    .then(data =>{
+      res.status(201).send(data)
+    })
+    .catch(error =>{
+      res.status(500).send({message: "An error has occurred and Address could not be created"})
+    })
+}
