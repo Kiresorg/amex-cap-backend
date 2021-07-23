@@ -25,28 +25,8 @@ exports.findAll = async (req, res) => {
     order: req.query.order ? [["updatedAt", "DESC"]] : ["id", "ASC"],
   })
     .then((data) => {
-<<<<<<< HEAD
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
-      });
-    });
-};
-
-exports.findAll = (req, res) => {
-  const email = req.query.email;
-  var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
-
-  Customer.findAll({ where: condition })
-    .then(data => {
-      res.status(200).send(data);
-=======
       console.log(res);
       res.send(data);
->>>>>>> c90d142a3839c2337eeed0a195a1c3c80c8f7273
     })
     .catch(err => {
       res.status(500).send({
