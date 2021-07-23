@@ -7,9 +7,9 @@ module.exports = (app) => {
   
   router.delete("/:id", customers.delete);
 
-  router.get("/", customers.findAll);
+  router.get("/", customers.findAllByCount);
 
-  router.post("/", customers.create);
+  //router.post("/", customers.create);
 
   app.use("/api/customers", router);
 };
