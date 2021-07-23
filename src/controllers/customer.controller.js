@@ -57,6 +57,9 @@ exports.delete = (req, res) => {
       res.status(200).send({ data });
     })
     .catch((err) => {
-      res.status(500).send(err);
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while deleting a customer.",
+      });
     });
 };
