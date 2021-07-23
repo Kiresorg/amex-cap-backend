@@ -3,12 +3,29 @@ const db = require("../sequelize/models");
 const Customer = db.Customer;
 const Op = Sequelize.Op;
 
-exports.findAllByCount = (req, res) => {
+exports.findAll = async (req, res) => {
   Customer.findAndCountAll({
     where: {},
-    limit: Number(req.query.count),
+    limit: req.query.count
+      ? Number(req.query.count)
+      : await Customer.findAll()
+          .then((data) => {
+            res.send(data);
+          })
+          .catch((err) => {
+            res.status(500).send({
+              message:
+                err.message ||
+                "Some error occurred while retrieving customers.",
+            });
+          }),
+    offset: req.query.page
+      ? (Number(req.query.page) - 1) * Number(req.query.count)
+      : 0,
+    order: req.query.order ? [["updatedAt", "DESC"]] : ["id", "ASC"],
   })
     .then((data) => {
+<<<<<<< HEAD
       res.send(data);
     })
     .catch((err) => {
@@ -26,6 +43,10 @@ exports.findAll = (req, res) => {
   Customer.findAll({ where: condition })
     .then(data => {
       res.status(200).send(data);
+=======
+      console.log(res);
+      res.send(data);
+>>>>>>> c90d142a3839c2337eeed0a195a1c3c80c8f7273
     })
     .catch(err => {
       res.status(500).send({
