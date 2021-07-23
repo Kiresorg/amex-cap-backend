@@ -16,8 +16,8 @@ exports.findAll = (req, res) => {
 
 exports.update = (req, res) => {
   Address.update({
-      address_line_1: req.body.address_line1,
-      address_line_2: req.body.address_line2,
+      address_line_1: req.body.address_line_1,
+      address_line_2: req.body.address_line_2,
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip

@@ -8,8 +8,8 @@ PUT http://localhost:8080/api/addresses/2
 Content-Type:application/json
 
 {
-    "address_line_1": "4479 Krista Radial",
-    "address_line_2": "Apt. 882",
+    "address_line_1": "234 Liart Rodeo",
+    "address_line_2": "Apt. 15",
     "city": "Mansfield",
     "state": "New York",
     "zip": "11594-5220"
