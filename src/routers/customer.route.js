@@ -4,8 +4,12 @@ module.exports = (app) => {
   var router = require("express").Router();
 
   router.get("/:id", customers.findById);
+  
+  router.delete("/:id", customers.delete);
 
-  router.get("/", customers.findAllByCount);
+  router.get("/", customers.findAll);
+
+  router.post("/", customers.create);
 
   app.use("/api/customers", router);
 };
