@@ -30,4 +30,20 @@ const findAll = (req, res) => {
     });
 };
 
-module.exports = { findAll: findAll, findAllByCount: findAllByCount };
+exports.findById = (req, res) => {
+  const id = req.params.id
+  Customer.findAll({where: {id:id}})
+  .then(data => {
+    if(data.length === 0){
+      res.status(404).send({message: "Customer does not exist"})
+    }
+    else{
+      res.send({data})
+    }
+  }).catch(err => {
+    res.status(500).send({
+      message: err.message || "Some error occurred while retrieving customers.",
+      
+    })
+  })
+};
