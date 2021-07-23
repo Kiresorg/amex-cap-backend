@@ -1,6 +1,21 @@
 ### get all customers
 GET http://localhost:8080/api/customers
 
+### create a new customer
+
+POST http://localhost:8080/api/customers
+Content-Type: application/json
+
+{
+    "first_name": "Moe",
+    "middle_name": "Ko",
+    "last_name": "Ko",
+    "phone": "12347567",
+    "email": "abc@abc.com",
+    "notes": "awesome",
+    "addressId": 102
+}
+
 ### GET customer by ID
 GET http://localhost:8080/api/customers/102
 

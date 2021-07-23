@@ -19,6 +19,32 @@ exports.findAllByCount = (req, res) => {
     });
 };
 
+exports.create = (req, res) => {
+  let first_name = req.body.first_name;
+  let middle_name = req.body.middle_name;
+  let last_name = req.body.last_name;
+  let phone = req.body.phone;
+  let email = req.body.email;
+  let notes = req.body.notes;
+  let addressID = req.body.addressId;
+
+  Customer.create({
+    first_name: first_name,
+    middle_name: middle_name,
+    last_name: last_name,
+    phone: phone,
+    email: email,
+    notes: notes,
+    address_id: addressID,
+  })
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((error) => {
+      res.status(500).send("Error on create address: " + error);
+    });
+};
+
 exports.findAll = (req, res) => {
   const email = req.query.email;
   var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
@@ -68,4 +94,3 @@ exports.delete = (req, res) => {
       });
     });
 };
-
