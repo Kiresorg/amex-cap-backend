@@ -12,8 +12,26 @@ exports.findAll = (req, res) => {
       });
     });
 };
+// DELETE address by ID
+exports.findById = (req, res) => {
+  const id = req.params.id;
+  Address.findAll({ where: { id: id } })
+    .then((data) => {
+      if (data.length === 0) {
+        res.status(404).send({ message: "Address does not exist" });
+      } else {
+        res.send({ data });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving addresss.",
+      });
+    });
+};
 
-// DELETE addressId
+// DELETE address
 exports.delete = (req, res) => {
   // delete storage instance of Address IDs to remove reference from object
   const id = req.params.id;
