@@ -4,7 +4,8 @@
   "description": "API for Amex CSRs",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "jest"
   },
   "author": "Robert Iaboni",
   "license": "ISC",
@@ -17,6 +18,8 @@
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.2.0"
+    "jest": "^27.0.6",
+    "sequelize-cli": "^6.2.0",
+    "supertest": "^6.1.4"
   }
 }
