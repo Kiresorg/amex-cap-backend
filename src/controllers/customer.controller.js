@@ -60,12 +60,13 @@ exports.create = (req, res) => {
     address_id: address_id,
   })
     .then((result) => {
-      res.status(200).send(result);
+      res.status(201).send(result);
     })
     .catch((error) => {
       res.status(500).send("Error on create address: " + error);
     });
 };
+
 exports.findById = (req, res) => {
   const id = req.params.id;
   Customer.findAll({ where: { id: id } })
@@ -73,7 +74,7 @@ exports.findById = (req, res) => {
       if (data.length === 0) {
         res.status(404).send({ message: "Customer does not exist" });
       } else {
-        res.send({ data });
+        res.send(data);
       }
     })
     .catch((err) => {
