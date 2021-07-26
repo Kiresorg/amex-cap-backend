@@ -20,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       notes: DataTypes.STRING(1000),
       address_id: {
-          type: DataTypes.INTEGER,
-          references: {
-              model: 'Address',
-              key: 'id'
-          }
-      }
+        type: DataTypes.INTEGER,
+        references: {
+          model: "Address",
+          key: "id",
+        },
+      },
     },
     {
       sequelize,

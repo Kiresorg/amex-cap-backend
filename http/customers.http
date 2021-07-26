@@ -2,19 +2,27 @@
 GET http://localhost:8080/api/customers
 
 ### create a new customer
-
 POST http://localhost:8080/api/customers
 Content-Type: application/json
 
 {
-    "first_name": "Moe",
+    "first_name": "Erik",
     "middle_name": "Ko",
-    "last_name": "Ko",
+    "last_name": "Kokomo",
     "phone": "12347567",
-    "email": "abc@abc.com",
-    "notes": "awesome",
-    "addressId": 102
+    "email": "foo@bar.com",
+    "notes": "tubular",
+    "address_id": 10
 }
+
+### get by id
+GET http://localhost:8080/api/customers/55
+
+### get with pagination - count and page number
+GET http://localhost:8080/api/customers?count=4&page=2
+
+### get with pagination - count and order by
+GET http://localhost:8080/api/customers?count=200&order=updatedAt
 
 ### GET customer by ID
 GET http://localhost:8080/api/customers/102

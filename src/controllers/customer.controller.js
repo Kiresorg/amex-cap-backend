@@ -3,20 +3,35 @@ const db = require("../sequelize/models");
 const Customer = db.Customer;
 const Op = Sequelize.Op;
 
-exports.findAllByCount = (req, res) => {
-  Customer.findAndCountAll({
-    where: {},
-    limit: Number(req.query.count),
-  })
-    .then((data) => {
-      res.send(data);
+exports.findAll = (req, res) => {
+  if (!isNaN(Number(req.query.count && !isNaN(Number(req.query.page))))) {
+    Customer.findAndCountAll({
+      where: {},
+      limit: Number(req.query.count),
+      offset: req.query.page
+        ? (Number(req.query.page) - 1) * Number(req.query.count)
+        : 0,
+      order: req.query.order ? [[req.query.order]] : ["id"],
     })
-    .catch((err) => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customers.",
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: "Some error occurred while retrieving customers.",
+        });
       });
-    });
+  } else {
+    Customer.findAll()
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: "Some error occurred while retrieving customers.",
+        });
+      });
+  }
 };
 
 exports.create = (req, res) => {
@@ -26,7 +41,7 @@ exports.create = (req, res) => {
   let phone = req.body.phone;
   let email = req.body.email;
   let notes = req.body.notes;
-  let addressID = req.body.addressId;
+  let address_id = req.body.address_id;
 
   Customer.create({
     first_name: first_name,
@@ -35,7 +50,7 @@ exports.create = (req, res) => {
     phone: phone,
     email: email,
     notes: notes,
-    address_id: addressID,
+    address_id: address_id,
   })
     .then((result) => {
       res.status(200).send(result);
@@ -44,23 +59,6 @@ exports.create = (req, res) => {
       res.status(500).send("Error on create address: " + error);
     });
 };
-
-exports.findAll = (req, res) => {
-  const email = req.query.email;
-  var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
-
-  Customer.findAll({ where: condition })
-    .then(data => {
-      res.status(200).send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving customer."
-      });
-    });
-};
-
 exports.findById = (req, res) => {
   const id = req.params.id;
   Customer.findAll({ where: { id: id } })
