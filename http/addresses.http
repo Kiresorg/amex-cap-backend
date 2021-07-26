@@ -1,16 +1,33 @@
-###
+### GET address
 
 GET http://localhost:8080/api/addresses
+
+
+### Update existing address
+
+PUT http://localhost:8080/api/addresses/2
+Content-Type:application/json
+
+{
+    "address_line_1": "234 Liart Rodeo",
+    "address_line_2": "Apt. 15",
+    "city": "Mansfield",
+    "state": "New York",
+    "zip": "11594-5220"
+  }
+
+### DELETE address by ID
+
+DELETE http://localhost:8080/api/addresses/85
 
 ### Create New Address
 POST http://localhost:8080/api/addresses
 Content-Type: application/json
 
 {
-  "address_line_1": "123 sulkins lane",
-  "address_line_2": "Apt 3",
-  "city": "NYC",
-  "state": "New York",
-  "zip": "10001"
+  "address_line_1": "903 point place",
+  "address_line_2": "Apt 4",
+  "city": "Point Place",
+  "state": "Wisconsin",
+  "zip": "23440"
 }
-
