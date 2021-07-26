@@ -4,12 +4,11 @@ const Product = db.Product;
 exports.findAll = (req, res) => {
   Product.findAll()
     .then((data) => {
-      res.send(data);
+      res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving products.",
+        message: "Error has occurred while retrieving products",
       });
     });
 };
