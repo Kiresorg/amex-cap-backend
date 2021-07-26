@@ -41,7 +41,7 @@ exports.create = (req, res) => {
   let phone = req.body.phone;
   let email = req.body.email;
   let notes = req.body.notes;
-  let addressID = req.body.address_id;
+  let address_id = req.body.address_id;
 
   Customer.create({
     first_name: first_name,
@@ -50,7 +50,7 @@ exports.create = (req, res) => {
     phone: phone,
     email: email,
     notes: notes,
-    address_id: addressID,
+    address_id: address_id,
   })
     .then((result) => {
       res.status(200).send(result);
