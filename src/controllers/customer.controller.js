@@ -5,8 +5,12 @@ const Op = Sequelize.Op;
 
 exports.findAll = (req, res) => {
   if (!isNaN(Number(req.query.count && !isNaN(Number(req.query.page))))) {
+
+    const email = req.query.email;
+    var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
+
     Customer.findAndCountAll({
-      where: {},
+      where: condition,
       limit: Number(req.query.count),
       offset: req.query.page
         ? (Number(req.query.page) - 1) * Number(req.query.count)
@@ -22,7 +26,10 @@ exports.findAll = (req, res) => {
         });
       });
   } else {
-    Customer.findAll()
+    const email = req.query.email;
+    var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
+    
+    Customer.findAll({ where: condition })
       .then((data) => {
         res.send(data);
       })
