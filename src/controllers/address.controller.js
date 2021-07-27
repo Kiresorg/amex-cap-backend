@@ -12,7 +12,8 @@ exports.findAll = (req, res) => {
       });
     });
 };
-// DELETE address by ID
+
+// find address by ID
 exports.findById = (req, res) => {
   const id = req.params.id;
   Address.findAll({ where: { id: id } })
@@ -20,7 +21,7 @@ exports.findById = (req, res) => {
       if (data.length === 0) {
         res.status(404).send({ message: "Address does not exist" });
       } else {
-        res.send({ data });
+        res.send(data);
       }
     })
     .catch((err) => {
