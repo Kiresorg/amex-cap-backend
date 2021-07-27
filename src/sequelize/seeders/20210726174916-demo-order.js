@@ -8,11 +8,12 @@ module.exports = {
     let customers = await queryInterface.sequelize.query(
       `SELECT id from Customers;`
     );
+    
     for (let i = 0; i <= 100; i++) {
       orders.push({
         customer_id:
           customers[0][Math.floor(Math.random() * customers[0].length)].id,
-        order_status: fake.lorem.sentence(),
+        order_status: fake.random.number(7),
         datetime_order_placed: fake.datatype.datetime(),
         total_order_price: fake.commerce.price(),
         order_notes: fake.lorem.sentence(),

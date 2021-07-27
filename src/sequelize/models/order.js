@@ -31,7 +31,6 @@ module.exports = (sequelize, DataTypes) => {
       datetime_order_placed: DataTypes.STRING,
       total_order_price: DataTypes.INTEGER,
       order_notes: DataTypes.STRING,
-     
     },
     {
       sequelize,
