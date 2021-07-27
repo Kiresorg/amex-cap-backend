@@ -6,13 +6,13 @@ POST http://localhost:8080/api/customers
 Content-Type: application/json
 
 {
-    "first_name": "Moe",
+    "first_name": "Erik",
     "middle_name": "Ko",
-    "last_name": "Ko",
+    "last_name": "Kokomo",
     "phone": "12347567",
-    "email": "abc@abc.com",
-    "notes": "awesome",
-    "addressId": 102
+    "email": "foo@bar.com",
+    "notes": "tubular",
+    "address_id": 10
 }
 
 ### get by id

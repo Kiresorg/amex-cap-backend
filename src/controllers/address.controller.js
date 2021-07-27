@@ -36,30 +36,60 @@ exports.delete = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  Address.update({
+  Address.update(
+    {
       address_line_1: req.body.address_line_1,
       address_line_2: req.body.address_line_2,
       city: req.body.city,
       state: req.body.state,
-      zip: req.body.zip
-  }, {
+      zip: req.body.zip,
+    },
+    {
       where: {
-          id: req.params.id
-      }
-  }).then (result => {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((result) => {
       res.status(200).send(result);
-  }).catch (error => {
-      res.status(500).send("Error on updating address with id of" + req.params.id + ": " + error);
-  })
-}
+    })
+    .catch((error) => {
+      res
+        .status(500)
+        .send(
+          "Error on updating address with id of" + req.params.id + ": " + error
+        );
+    });
+};
 
 exports.create = (req, res) => {
-    //this will create new address for User
-    Address.create(req.body)
-    .then(data =>{
-      res.status(201).send(data)
+  //this will create new address for User
+  Address.create(req.body)
+    .then((data) => {
+      res.status(201).send(data);
     })
-    .catch(error =>{
-      res.status(500).send({message: "An error has occurred and Address could not be created"})
+    .catch((error) => {
+      res
+        .status(500)
+        .send({
+          message: "An error has occurred and Address could not be created",
+        });
+    });
+};
+
+exports.findById = (req, res) => {
+  const id = req.params.id;
+  Address.findAll({ where: { id: id } })
+    .then((data) => {
+      if (data.length === 0) {
+        res.status(404).send({ message: "Address does not exist" });
+      } else {
+        res.send({ data });
+      }
     })
-}
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving address.",
+      });
+    });
+};
