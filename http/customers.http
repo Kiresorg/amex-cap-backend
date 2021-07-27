@@ -21,14 +21,22 @@ GET http://localhost:8080/api/customers/55
 ### get with pagination - count and page number
 GET http://localhost:8080/api/customers?count=4&page=2
 
+### get with pagination and search - count and page number
+GET http://localhost:8080/api/customers?count=4&page=2&email=Krystina21@hotmail.com
+
 ### get with pagination - count and order by
 GET http://localhost:8080/api/customers?count=200&order=updatedAt
+
+### get with pagination and search - count and order by
+GET http://localhost:8080/api/customers?count=200&order=updatedAt&email=Krystina21@hotmail.com
+
 
 ### GET customer by ID
 GET http://localhost:8080/api/customers/102
 
 ### search by email
-GET http://localhost:8080/api/customers?email=hotmail
+GET http://localhost:8080/api/customers?email=Krystina21@hotmail.com
+
 
 ### delete by id
 DELETE http://localhost:8080/api/customers/2
