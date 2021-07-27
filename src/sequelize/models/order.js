@@ -31,27 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       datetime_order_placed: DataTypes.STRING,
       total_order_price: DataTypes.INTEGER,
       order_notes: DataTypes.STRING,
-      first_name: {
-        type: DataTypes.STRING,
-        references: {
-          model: "Customer",
-          key: "id",
-        },
-      },
-      last_name: {
-        type: DataTypes.STRING,
-        references: {
-          model: "Customer",
-          key: "id",
-        },
-      },
-      email: {
-        type: DataTypes.STRING,
-        references: {
-          model: "Customer",
-          key: "id",
-        },
-      },
+     
     },
     {
       sequelize,
