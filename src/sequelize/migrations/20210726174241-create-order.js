@@ -19,6 +19,9 @@ module.exports = {
       order_status: {
         type: Sequelize.INTEGER,
       },
+      status_text: {
+        type: Sequelize.STRING,
+      },
       datetime_order_placed: {
         type: Sequelize.STRING,
       },
