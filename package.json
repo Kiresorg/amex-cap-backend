@@ -2,21 +2,38 @@
   "name": "amexcsrapi",
   "version": "1.0.0",
   "description": "API for Amex CSRs",
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate && npm run seed",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
+    "pretest": "cross-env NODE_ENV=test npm run migrate:reset"
   },
   "author": "Robert Iaboni",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.12.2",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dot-env": "^0.0.1",
     "express": "^4.17.1",
     "faker": "^5.5.3",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.2.0"
+    "jest": "^27.0.6",
+    "sequelize-cli": "^6.2.0",
+    "supertest": "^6.1.4",
+    "cross-env": "^7.0.3"
   }
 }
