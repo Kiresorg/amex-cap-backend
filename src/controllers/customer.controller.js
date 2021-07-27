@@ -66,7 +66,7 @@ exports.findById = (req, res) => {
       if (data.length === 0) {
         res.status(404).send({ message: "Customer does not exist" });
       } else {
-        res.send({ data });
+        res.send(data);
       }
     })
     .catch((err) => {

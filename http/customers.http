@@ -48,5 +48,5 @@ Content-Type: application/json
     "phone": "212-123-4567",
     "email": "jim.liriano@gmail.com",
     "notes": "this is a test",
-    "address_id": 148
+    "address_id": 1
 }
