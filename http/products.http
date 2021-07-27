@@ -2,3 +2,18 @@
 ###
 
 GET http://localhost:8080/api/products
+
+###Update product by ID
+PUT http://localhost:8080/api/products/501
+Content-Type: application/json
+
+ {
+    
+    "name": "checkmate",
+    "price": 500,
+    "sku": "75378",
+    "quantity": 163,
+    "description": "check"
+  }
+
+

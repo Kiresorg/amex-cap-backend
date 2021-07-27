@@ -5,5 +5,7 @@ module.exports = (app) => {
 
   router.get("/", products.findAll);
 
+  router.put("/:id", products.update)
+
   app.use("/api/products", router);
 };
