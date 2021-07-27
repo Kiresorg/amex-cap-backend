@@ -1,8 +1,12 @@
 const db = require("../sequelize/models");
 const Order = db.Order;
+const Customer = db.Customer;
+const OrderStatus = db.OrderStatus;
 
 exports.findAll = (req, res) => {
-  Order.findAll()
+  Order.findAll({
+    include: [{ model: Customer, required: true }],
+  })
     .then((data) => {
       res.status(200).send(data);
     })

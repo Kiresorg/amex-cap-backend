@@ -1,5 +1,5 @@
 "use strict";
-const { Model } = require("sequelize");
+const { Model, STRING } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Order extends Model {
     /**
@@ -20,7 +20,9 @@ module.exports = (sequelize, DataTypes) => {
           key: "id",
         },
       },
-      order_status: DataTypes.STRING,
+      order_status: {
+        type: DataTypes.INTEGER,
+      },
       datetime_order_placed: DataTypes.STRING,
       total_order_price: DataTypes.INTEGER,
       order_notes: DataTypes.STRING,
