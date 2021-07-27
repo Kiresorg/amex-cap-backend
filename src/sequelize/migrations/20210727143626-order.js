@@ -17,7 +17,7 @@ module.exports = {
         onDelete: "CASCADE",
       },
       order_status: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER
       },
       datetime_order_placed: {
         type: Sequelize.STRING,
@@ -28,30 +28,6 @@ module.exports = {
       order_notes: {
         type: Sequelize.STRING,
       },
-      // first_name: {
-      //   type: Sequelize.STRING,
-      //   references: {
-      //     model: "Customers",
-      //     key: "first_name",
-      //   },
-      //   onDelete: "CASCADE",
-      // },
-      // last_name: {
-      //   type: Sequelize.STRING,
-      //   references: {
-      //     model: "Customers",
-      //     key: "last_name",
-      //   },
-      //   onDelete: "CASCADE",
-      // },
-      // email: {
-      //   type: Sequelize.STRING,
-      //   references: {
-      //     model: "Customers",
-      //     key: "email",
-      //   },
-      //   onDelete: "CASCADE",
-      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

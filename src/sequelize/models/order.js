@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Order.belongsTo(models.Customer, { foreignKey: "customer_id" });
-      Order.hasMany(models.OrderStatus, { foreignKey: "reference_id" });
     }
   }
   Order.init(
@@ -22,11 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       order_status: {
-        type: DataTypes.STRING,
-        references: {
-          model: "OrderStatus",
-          key: "reference_id",
-        },
+        type: DataTypes.INTEGER,
       },
       datetime_order_placed: DataTypes.STRING,
       total_order_price: DataTypes.INTEGER,
