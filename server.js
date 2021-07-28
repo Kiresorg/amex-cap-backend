@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the Amex CSR API." });
 });
 
+require("./src/routers/order.route")(app);
 require("./src/routers/address.route")(app);
 require("./src/routers/product.route")(app);
 require("./src/routers/customer.route")(app);
