@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "TdC3396155055381#",
-=======
-    "password": "Standbyme22",
->>>>>>> 5699eb1e117ff05eb4c814e8e81d687e96ae28e9
     "database": "csrdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
