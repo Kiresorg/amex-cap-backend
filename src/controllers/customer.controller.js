@@ -6,8 +6,12 @@ const Op = Sequelize.Op;
 
 exports.findAll = (req, res) => {
   if (!isNaN(Number(req.query.count && !isNaN(Number(req.query.page))))) {
+
+    const email = req.query.email;
+    var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
+
     Customer.findAndCountAll({
-      where: {},
+      where: condition,
       limit: Number(req.query.count),
       offset: req.query.page
         ? (Number(req.query.page) - 1) * Number(req.query.count)
@@ -23,7 +27,10 @@ exports.findAll = (req, res) => {
         });
       });
   } else {
-    Customer.findAll()
+    const email = req.query.email;
+    var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
+    
+    Customer.findAll({ where: condition })
       .then((data) => {
         res.send(data);
       })
@@ -54,12 +61,13 @@ exports.create = (req, res) => {
     address_id: address_id,
   })
     .then((result) => {
-      res.status(200).send(result);
+      res.status(201).send(result);
     })
     .catch((error) => {
       res.status(500).send("Error on create address: " + error);
     });
 };
+
 exports.findById = (req, res) => {
   const id = req.params.id;
   Customer.findAll({ where: { id: id } })
@@ -67,7 +75,7 @@ exports.findById = (req, res) => {
       if (data.length === 0) {
         res.status(404).send({ message: "Customer does not exist" });
       } else {
-        res.send({ data });
+        res.send(data);
       }
     })
     .catch((err) => {
