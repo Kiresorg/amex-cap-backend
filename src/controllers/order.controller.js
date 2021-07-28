@@ -21,3 +21,19 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  Order.destroy({
+    where: { id: id },
+  })
+    .then((data) => {
+      res.status(200).send({ data });
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while deleting this order.",
+      });
+    });
+};

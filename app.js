@@ -34,8 +34,10 @@ require("./src/routers/product.route")(app);
 require("./src/routers/customer.route")(app);
 require("./src/routers/order.route")(app);
 
+
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+

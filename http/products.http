@@ -2,3 +2,7 @@
 ###
 
 GET http://localhost:8080/api/products
+
+
+### GET product by Id
+GET http://localhost:8080/api/products/1
