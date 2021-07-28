@@ -13,7 +13,7 @@ module.exports = {
       orders.push({
         customer_id:
           customers[0][Math.floor(Math.random() * customers[0].length)].id,
-        order_status: fake.random.number(7),
+        order_status: fake.datatype.number(7),
         datetime_order_placed: fake.datatype.datetime(),
         total_order_price: fake.commerce.price(),
         order_notes: fake.lorem.sentence(),
