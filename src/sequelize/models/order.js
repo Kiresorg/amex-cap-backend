@@ -20,9 +20,14 @@ module.exports = (sequelize, DataTypes) => {
           key: "id",
         },
       },
+
       order_status: {
         type: DataTypes.INTEGER,
       },
+      status_text: {
+        type: DataTypes.STRING,
+      },
+
       datetime_order_placed: DataTypes.STRING,
       total_order_price: DataTypes.INTEGER,
       order_notes: DataTypes.STRING,
