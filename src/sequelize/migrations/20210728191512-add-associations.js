@@ -3,11 +3,11 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.createTable("order_products", {
-      order_id: {
+      OrderId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
       },
-      product_id: {
+      ProductId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
       },
