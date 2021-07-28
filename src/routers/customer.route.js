@@ -10,7 +10,8 @@ module.exports = (app) => {
   router.get("/", customers.findAll);
 
   router.post("/", customers.create);
-  //router.post("/", customers.create);
+  
+  router.put("/:id", customers.update);
 
   app.use("/api/customers", router);
 };
