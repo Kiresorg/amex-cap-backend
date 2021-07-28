@@ -1,5 +1,4 @@
-
-const app = require('./server');
+const app = require("./server");
 
 
 // set port, listen for requests
