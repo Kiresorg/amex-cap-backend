@@ -95,20 +95,3 @@ exports.create = (req, res) => {
         });
     });
 };
-
-exports.findById = (req, res) => {
-  const id = req.params.id;
-  Address.findAll({ where: { id: id } })
-    .then((data) => {
-      if (data.length === 0) {
-        res.status(404).send({ message: "Address does not exist" });
-      } else {
-        res.send({ data });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while retrieving address.",
-      });
-    });
-};
