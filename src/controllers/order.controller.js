@@ -19,7 +19,9 @@ exports.findAll = (req, res) => {
 
 exports.findById = (req, res) => {
   const id = req.params.id;
-  Order.findAll({ where: { id: id } })
+  Order.findByPk(id, {
+    include: [{ model: Customer, required: true }],
+  })
     .then((data) => {
       if (data.length === 0) {
         res.status(404).send({ message: "Order does not exist" });
