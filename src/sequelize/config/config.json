@@ -8,7 +8,7 @@
   },
   "test": {
     "username": "oldroot",
-    "password": "Z^V^Zd3v",
+    "password": "root1234",
     "database": "test-csrdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
