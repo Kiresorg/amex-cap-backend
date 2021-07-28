@@ -1,4 +1,5 @@
 module.exports = (app) => {
+
   const addresses = require("../controllers/address.controller");
 
   var router = require("express").Router();
@@ -9,10 +10,8 @@ module.exports = (app) => {
   // Retrieve all Addresses
   router.get("/", addresses.findAll);
 
-  // Retrieve a single Tutorial with id
+  // Retrieve an exising address by id
   router.get("/:id", addresses.findById);
-
-  // router.get("/:id", tutorials.findOne);
 
   // Update an address with id
   router.put("/:id", addresses.update);
