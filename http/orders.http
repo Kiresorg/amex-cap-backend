@@ -11,5 +11,4 @@ Content-Type:application/json
     "order_status": 5,
     "total_order_price": 555,
     "order_notes": "10 outta 10"
-    
-  }
+}
