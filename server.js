@@ -20,5 +20,6 @@ app.get("/", (req, res) => {
 require("./src/routers/address.route")(app);
 require("./src/routers/product.route")(app);
 require("./src/routers/customer.route")(app);
+require("./src/routers/order.route")(app);
 
 module.exports = app;

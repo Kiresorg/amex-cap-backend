@@ -1,3 +1,15 @@
 ### GET orders
 
-GET http://localhost:8080/api/orders
+GET http://localhost:8080/api/orders/
+
+### Edit Orders
+
+PUT http://localhost:8080/api/orders/1
+Content-Type:application/json
+
+{
+    "order_status": 5,
+    "total_order_price": 555,
+    "order_notes": "10 outta 10"
+    
+  }

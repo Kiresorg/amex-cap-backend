@@ -18,7 +18,7 @@ Content-Type:application/json
     "city": "Mansfield",
     "state": "New York",
     "zip": "11594-5220"
-  }
+}
 
 ### DELETE address by ID
 
