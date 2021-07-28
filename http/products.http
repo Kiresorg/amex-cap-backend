@@ -3,6 +3,7 @@
 
 GET http://localhost:8080/api/products
 
+<<<<<<< HEAD
 ###Update product by ID
 PUT http://localhost:8080/api/products/501
 Content-Type: application/json
@@ -17,3 +18,8 @@ Content-Type: application/json
   }
 
 
+=======
+
+### GET product by Id
+GET http://localhost:8080/api/products/1
+>>>>>>> origin/main
