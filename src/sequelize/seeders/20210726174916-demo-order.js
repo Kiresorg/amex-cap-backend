@@ -8,7 +8,7 @@ module.exports = {
     let customers = await queryInterface.sequelize.query(
       `SELECT id from Customers;`
     );
-    
+
     for (let i = 0; i <= 100; i++) {
       orders.push({
         customer_id:
