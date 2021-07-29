@@ -4,7 +4,7 @@
 GET http://localhost:8080/api/products
 
 ###Update product by ID
-PUT http://localhost:8080/api/products/501?quantity=5
+PUT http://localhost:8080/api/products/1?quantity=170
 Content-Type: application/json
 
 
