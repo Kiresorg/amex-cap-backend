@@ -63,7 +63,7 @@ exports.create = (req, res) => {
   let datetime_order_placed = req.body.datetime_order_placed;
   let total_order_price = req.body.total_order_price;
   let order_notes = req.body.order_notes;
-  let ProductId = req.body.ProductId;
+  let products = req.body.products;
 
   Order.create({
     customer_id: customer_id,
@@ -71,8 +71,12 @@ exports.create = (req, res) => {
     datetime_order_placed: datetime_order_placed,
     total_order_price: total_order_price,
     order_notes: order_notes,
-    ProductId: ProductId,
   })
+    .then(async (order) => {
+      console.log(products);
+      await order.addProducts(products);
+      return order;
+    })
     .then((result) => {
       res.status(201).send(result);
     })
