@@ -8,8 +8,8 @@ GET http://localhost:8080/api/orders?status=3
 
 ### GET orders by ID
 
-GET http://localhost:8080/api/orders/5
+GET http://localhost:8080/api/orders/88
 
 ### Delete order by ID
 
-DELETE http://localhost:8080/api/orders/4
+DELETE http://localhost:8080/api/orders/88
