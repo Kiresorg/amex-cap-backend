@@ -48,7 +48,12 @@ exports.update = async (req, res) => {
           res.status(200).send(data);
       })
       .catch((error) => {
-        res.status(500).send({ message: "Error updating product" });
+        // tried to use more product than exists
+        if(error.message.includes('Out of range value for column \'quantity\' at row 1'))
+        res.status(500).send({ message: "Insufficient product quantity exists" })
+        else(
+          res.status(500).send({ message: "Error updating product" })
+        );
       });
     } else {
       res
