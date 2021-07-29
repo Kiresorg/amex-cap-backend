@@ -75,7 +75,7 @@ exports.findById = (req, res) => {
   Order.findByPk(id, {
     include: [
       { model: Customer, required: true },
-      { model: Product, required: true },
+      { model: Product, required: false },
     ],
   })
     .then((data) => {
