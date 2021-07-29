@@ -2,6 +2,7 @@ const { Sequelize } = require("../sequelize/models");
 const db = require("../sequelize/models");
 const Customer = db.Customer;
 const Op = Sequelize.Op;
+const Order = db.Order;
 
 exports.findAll = (req, res) => {
   if (!isNaN(Number(req.query.count && !isNaN(Number(req.query.page))))) {
@@ -68,7 +69,10 @@ exports.create = (req, res) => {
 
 exports.findById = (req, res) => {
   const id = req.params.id;
-  Customer.findAll({ where: { id: id } })
+  Customer.findAll({
+    where: { id: id },
+    include: [{ model: Order, required: true }],
+  })
     .then((data) => {
       if (data.length === 0) {
         res.status(404).send({ message: "Customer does not exist" });
