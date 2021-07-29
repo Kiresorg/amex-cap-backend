@@ -14,19 +14,17 @@ module.exports = (sequelize, DataTypes) => {
         // foreignKey: "product_id",
       });
     }
-  }
-  Product.init(
-    {
-      name: DataTypes.STRING,
-      price: DataTypes.INTEGER,
-      sku: DataTypes.STRING,
-      quantity: DataTypes.INTEGER,
-      description: DataTypes.STRING,
-    },
-    {
-      sequelize,
-      modelName: "Product",
-    }
-  );
+  };
+  Product.init({
+    name: DataTypes.STRING,
+    price: DataTypes.INTEGER,
+    sku: DataTypes.STRING,
+    quantity: DataTypes.INTEGER.UNSIGNED,
+    description: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Product',
+  });
+
   return Product;
 };
