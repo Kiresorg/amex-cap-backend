@@ -1,8 +1,10 @@
+const { Sequelize } = require("../sequelize/models");
 const db = require("../sequelize/models");
 const Order = db.Order;
 const Customer = db.Customer;
 const Product = db.Product;
 const Status = require("../utils/orderstatus");
+const Op = Sequelize.Op;
 
 exports.findAll = (req, res) => {
   if (!isNaN(Number(req.query.status))) {
@@ -34,7 +36,6 @@ exports.findAll = (req, res) => {
           data[i].dataValues.status_text =
             Status[data[i].dataValues.order_status];
         }
-
         res.status(200).send(data);
       })
       .catch((err) => {
