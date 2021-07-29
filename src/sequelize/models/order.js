@@ -1,5 +1,5 @@
 "use strict";
-const { Model, STRING } = require("sequelize");
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Order extends Model {
     /**
@@ -12,8 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 
       Order.belongsToMany(models.Product, {
         through: "order_products",
-        // as: "products",
-        // foreignKey: "order_id",
+        foreignKey: "OrderId",
       });
     }
   }
@@ -28,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       },
 
       order_status: {
+        defaultValue: 0,
         type: DataTypes.INTEGER,
       },
       status_text: {
