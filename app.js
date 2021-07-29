@@ -33,6 +33,7 @@ require("./src/routers/address.route")(app);
 require("./src/routers/product.route")(app);
 require("./src/routers/customer.route")(app);
 require("./src/routers/order.route")(app);
+const app = require("./server");
 
 
 // set port, listen for requests
