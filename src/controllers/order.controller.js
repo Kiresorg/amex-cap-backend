@@ -67,3 +67,22 @@ exports.findById = (req, res) => {
       });
     });
 };
+
+exports.findById = (req, res) => {
+  const id = req.params.id;
+  Order.findByPk(id, {
+    include: [{ model: Customer, required: true }],
+  })
+    .then((data) => {
+      if (data.length === 0) {
+        res.status(404).send({ message: "Order does not exist" });
+      } else {
+        res.send(data);
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving order.",
+      });
+    });
+};

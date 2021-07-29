@@ -3,7 +3,6 @@ const db = require("../sequelize/models");
 const Customer = db.Customer;
 const Op = Sequelize.Op;
 
-
 exports.findAll = (req, res) => {
   if (!isNaN(Number(req.query.count && !isNaN(Number(req.query.page))))) {
 
@@ -101,3 +100,24 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+// update customer
+exports.update = (req, res) => {
+  Customer.update({
+      first_name: req.body.first_name,
+      middle_name: req.body.middle_name,
+      last_name: req.body.last_name,
+      phone: req.body.phone,
+      email: req.body.email,
+      notes: req.body.notes,
+      address_id: req.body.address_id
+  }, {
+      where: {
+          id: req.params.id
+      }
+  }).then (result => {
+      res.status(200).send(result);
+  }).catch (error => {
+      res.status(500).send("Error on updating customer with id of" + req.params.id + ": " + error);
+  })
+}
