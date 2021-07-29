@@ -1,7 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Ninaombakufungua90!1",
+    "password": "Mysqlroot1!",
+
     "database": "csrdb",
     "host": "127.0.0.1",
     "dialect": "mysql"

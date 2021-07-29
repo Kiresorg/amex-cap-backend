@@ -1,7 +1,9 @@
 const { Sequelize } = require("../sequelize/models");
 const db = require("../sequelize/models");
+const product = require("../sequelize/models/product");
 const Order = db.Order;
 const Customer = db.Customer;
+const Product = db.Product;
 const Status = require("../utils/orderstatus");
 const Op = Sequelize.Op;
 
@@ -71,7 +73,10 @@ exports.findById = (req, res) => {
 exports.findById = (req, res) => {
   const id = req.params.id;
   Order.findByPk(id, {
-    include: [{ model: Customer, required: true }],
+    include: [
+      { model: Customer, required: true },
+      { model: Product, required: true },
+    ],
   })
     .then((data) => {
       if (data.length === 0) {
@@ -82,7 +87,7 @@ exports.findById = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving order.",
+        message: "Some error occurred while retrieving order.",
       });
     });
 };
