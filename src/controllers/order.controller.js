@@ -16,7 +16,10 @@ exports.findAll = (req, res) => {
       where: {
         order_status: req.query.status,
       },
-      include: [{ model: Customer, required: true }, { model: Product }],
+      include: [
+        { model: Customer, required: true },
+        { model: Product, required: false },
+      ],
     })
       .then((data) => {
         for (let i = 0; i < data.length; i++) {
@@ -33,7 +36,10 @@ exports.findAll = (req, res) => {
       });
   } else {
     Order.findAll({
-      include: [{ model: Customer, required: true }, { model: Product }],
+      include: [
+        { model: Customer, required: true },
+        { model: Product, required: false },
+      ],
     })
       .then((data) => {
         for (let i = 0; i < data.length; i++) {
@@ -78,7 +84,10 @@ exports.create = (req, res) => {
 exports.findById = (req, res) => {
   const id = req.params.id;
   Order.findByPk(id, {
-    include: [{ model: Customer, required: true }, { model: Product }],
+    include: [
+      { model: Customer, required: true },
+      { model: Product, required: false },
+    ],
   })
     .then((data) => {
       if (data.length === 0) {
