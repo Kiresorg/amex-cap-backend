@@ -137,11 +137,12 @@ We set up Jest as our Unit Test framework. In order to use it, you need to do th
 - Create a user on your MySQL server that the tests will run under. In your MySQL workbench, use the following command (MAKE SURE YOU PUT YOUR ADDRESS IN AT THE END):
 ```CREATE USER 'oldroot'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password';```
 - Create a test database called ```test-csrdb```. 
-- Give the new ```oldroot``` user all possible permissions on the new ```test-csrdb``` database:
+Give the new ```oldroot``` user all possible permissions on the new ```test-csrdb``` database:
   - Go to Server/Users and Privileges
   - Select the ```oldroot``` user
   - On the right, select the "Schema Privileges" tab
-  - Click "Select "ALL" at the bottom right
+  - Click on Add Entry; Click Ok
+  - Click "Select "ALL" at the bottom right (or select all the options once they un-gray out if you don't see a select ALL)
   - Click "Apply"
 - In your ```src/sequelize/config/config.json``` file, put the above database/user/password info in the "test" key
 
