@@ -5,6 +5,7 @@ module.exports = (app) => {
 
   router.get("/", orders.findAll);
   router.get("/:id", orders.findById);
+  router.post("/", orders.create);
 
   app.use("/api/orders", router);
 };
