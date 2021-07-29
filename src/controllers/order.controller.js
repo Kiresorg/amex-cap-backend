@@ -73,7 +73,6 @@ exports.create = (req, res) => {
     order_notes: order_notes,
   })
     .then(async (order) => {
-      console.log(products);
       await order.addProducts(products);
       return order;
     })
