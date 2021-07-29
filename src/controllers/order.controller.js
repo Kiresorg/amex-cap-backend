@@ -7,12 +7,16 @@ const Status = require("../utils/orderstatus");
 const Op = Sequelize.Op;
 
 exports.findAll = (req, res) => {
-  if (!isNaN(Number(req.query.status))) {
+  if (isNaN(Number(req.query.status)) && req.query.status) {
+    res
+      .status(400)
+      .send({ message: "status codes need to be sent as integers" });
+  } else if (!isNaN(Number(req.query.status))) {
     Order.findAll({
       where: {
         order_status: req.query.status,
       },
-      include: [{ model: Customer, required: true }],
+      include: [{ model: Customer, required: true }, { model: Product }],
     })
       .then((data) => {
         for (let i = 0; i < data.length; i++) {
@@ -29,13 +33,14 @@ exports.findAll = (req, res) => {
       });
   } else {
     Order.findAll({
-      include: [{ model: Customer, required: true }],
+      include: [{ model: Customer, required: true }, { model: Product }],
     })
       .then((data) => {
         for (let i = 0; i < data.length; i++) {
           data[i].dataValues.status_text =
             Status[data[i].dataValues.order_status];
         }
+
         res.status(200).send(data);
       })
       .catch((err) => {

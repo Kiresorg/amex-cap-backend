@@ -17,8 +17,6 @@ Content-Type: application/json
       "datetime_order_placed": "2021-07-28T13:46:10.991Z",
       "total_order_price": 935,
       "order_notes": "jkdjfkasjiejfkajskldf",
-      "products": [
-        1,
-      4
-      ]
+      "products": 1,
+    
     }
