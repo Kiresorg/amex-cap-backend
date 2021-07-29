@@ -7,10 +7,10 @@ module.exports = {
     let products = [];
     for (let i = 0; i <= 100; i++) {
       products.push({
-        sku: fake.random.number(),
+        sku: fake.datatype.number(),
         price: fake.commerce.price(),
         name: fake.commerce.productName(),
-        quantity: fake.random.number(200),
+        quantity: fake.datatype.number(200),
         description: fake.commerce.productDescription(),
         createdAt: new Date(),
         updatedAt: new Date(),
