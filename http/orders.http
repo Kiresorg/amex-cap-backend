@@ -1,3 +1,7 @@
 ### GET orders
 
 GET http://localhost:8080/api/orders
+
+### GET orders; filter by order status
+
+GET http://localhost:8080/api/orders?status=3

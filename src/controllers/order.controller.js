@@ -6,7 +6,11 @@ const Status = require("../utils/orderstatus");
 const Op = Sequelize.Op;
 
 exports.findAll = (req, res) => {
-  if (!isNaN(Number(req.query.status))) {
+  if(isNaN(Number(req.query.status)) && req.query.status ) {
+    res.status(400).send({ message: 'status codes need to be sent as integers'});
+  }
+
+  else if (!isNaN(Number(req.query.status))) {
     Order.findAll({
       where: {
         order_status: req.query.status,
