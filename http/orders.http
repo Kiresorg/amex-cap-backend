@@ -2,10 +2,25 @@
 
 GET http://localhost:8080/api/orders
 
-### GET orders; filter by order status
-
-GET http://localhost:8080/api/orders?status=3
 
 ### GET orders by ID
 
-GET http://localhost:8080/api/orders/10
+GET http://localhost:8080/api/orders/5
+
+### Delete order by ID
+
+DELETE http://localhost:8080/api/orders/88
+###
+
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+    {
+      "customer_id": "2",
+      "order_status": "0",
+      "datetime_order_placed": "2021-07-28T13:46:10.991Z",
+      "total_order_price": 935,
+      "order_notes": "jkdjfkasjiejfkajskldf",
+      "products": "1,4"
+    
+    }
