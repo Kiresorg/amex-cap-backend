@@ -19,16 +19,5 @@ describe("GET Endpoints", () => {
   });
 });
 
-// update product quantity
-describe("PUT Endpoints", () => {
-  it("should update number of products left", async () => {
-    const update = {
-      quantity: newQuantity,
-    };
-    const res = await request(app).put("/api/products/1").send(products);
-
-    expect(res.statusCode).toEqual(200);
-  });
-});
 
 // delete a product
