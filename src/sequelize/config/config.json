@@ -8,16 +8,16 @@
   },
   "test": {
     "username": "oldroot",
-    "password": "Z^V^Zd3v",
+    "password": "Ninaombakufungua90!1",
     "database": "test-csrdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "kiresorg@mysql-amex",
+    "password": "Amex2021",
+    "database": "csrdb",
+    "host": "mysql-amex.mysql.database.azure.com",
     "dialect": "mysql"
   }
-}
+  }
