@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "Ninaombakufungua90!1",
+    "password": "Vathy-11419*",
     "database": "csrdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "oldroot",
-    "password": "Z^V^Zd3v",
+    "password": "root1234",
     "database": "test-csrdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
