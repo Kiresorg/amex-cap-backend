@@ -2,10 +2,10 @@ const { Sequelize } = require("../sequelize/models");
 const db = require("../sequelize/models");
 const Customer = db.Customer;
 const Op = Sequelize.Op;
+const Order = db.Order;
 
 exports.findAll = (req, res) => {
   if (!isNaN(Number(req.query.count && !isNaN(Number(req.query.page))))) {
-
     const email = req.query.email;
     var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
 
@@ -15,7 +15,7 @@ exports.findAll = (req, res) => {
       offset: req.query.page
         ? (Number(req.query.page) - 1) * Number(req.query.count)
         : 0,
-      order: req.query.order ? [[req.query.order]] : ["id"],
+      order: req.query.order ? [[req.query.order, "DESC"]] : ["id"],
     })
       .then((data) => {
         res.send(data);
@@ -28,7 +28,7 @@ exports.findAll = (req, res) => {
   } else {
     const email = req.query.email;
     var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
-    
+
     Customer.findAll({ where: condition })
       .then((data) => {
         res.send(data);
@@ -69,7 +69,10 @@ exports.create = (req, res) => {
 
 exports.findById = (req, res) => {
   const id = req.params.id;
-  Customer.findAll({ where: { id: id } })
+  Customer.findAll({
+    where: { id: id },
+    include: [{ model: Order, required: true }],
+  })
     .then((data) => {
       if (data.length === 0) {
         res.status(404).send({ message: "Customer does not exist" });
@@ -103,21 +106,30 @@ exports.delete = (req, res) => {
 
 // update customer
 exports.update = (req, res) => {
-  Customer.update({
+  Customer.update(
+    {
       first_name: req.body.first_name,
       middle_name: req.body.middle_name,
       last_name: req.body.last_name,
       phone: req.body.phone,
       email: req.body.email,
       notes: req.body.notes,
-      address_id: req.body.address_id
-  }, {
+      address_id: req.body.address_id,
+    },
+    {
       where: {
-          id: req.params.id
-      }
-  }).then (result => {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((result) => {
       res.status(200).send(result);
-  }).catch (error => {
-      res.status(500).send("Error on updating customer with id of" + req.params.id + ": " + error);
-  })
-}
+    })
+    .catch((error) => {
+      res
+        .status(500)
+        .send(
+          "Error on updating customer with id of" + req.params.id + ": " + error
+        );
+    });
+};
