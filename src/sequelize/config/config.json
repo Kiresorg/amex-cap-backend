@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "kiresorg@mysql-amex",
-    "password": "Amex2021",
-    "database": "csrdb",
-    "host": "mysql-amex.mysql.database.azure.com",
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }
