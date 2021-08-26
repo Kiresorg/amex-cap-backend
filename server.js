@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to our CSR API! by Craig V" });
+  res.json({ message: "Welcome to our CSR API! - BY Barbara St. Louis" });
 });
 require("./src/routers/address.route")(app);
 require("./src/routers/product.route")(app);
