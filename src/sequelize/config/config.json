@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "kiresorg@csrdb",
-    "password": "Amex2021",
+    "username": "kiresorg@csrdb2",
+    "password": "Z^V^Zd3v",
     "database": "csrdb",
-    "host": "csrdb.mysql.database.azure.com",
+    "host": "csrdb2.mysql.database.azure.com",
     "dialect": "mysql"
   },
   "test": {
