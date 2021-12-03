@@ -1,15 +1,15 @@
 {
   "development": {
-    "username": "kiresorg@csrdb2",
+    "username": "root",
     "password": "Z^V^Zd3v",
     "database": "csrdb",
-    "host": "csrdb2.mysql.database.azure.com",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
-    "username": "oldroot",
-    "password": "Ninaombakufungua90!1",
-    "database": "test-csrdb",
+    "username": "root",
+    "password": "Z^V^Zd3v",
+    "database": "csrdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
