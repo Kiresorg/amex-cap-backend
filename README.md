@@ -19,7 +19,7 @@
     - update seeders: ```npx sequelize-cli db:seed:all```
 
 ## Source Control Management
-> THIS IS EXTREMELY IMPORTANT. READ THIS BEFORE DOING ANY DEVELOPMENT
+> THIS IS EXTREMELY IMPORTANT! READ THIS BEFORE DOING ANY DEVELOPMENT
 
 UNDER NO CIRCUMSTANCES SHOULD YOU COMMIT ANY CODE TO THE ```main``` branch out on the Github repo. 
 
