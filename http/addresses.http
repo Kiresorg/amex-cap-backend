@@ -4,12 +4,12 @@ GET http://localhost:8080
 
 ### GET address
 
-GET http://localhost:8080/api/addresses
+GET http://localhost:8080/api/address
 
 
 ### Update existing address
 
-PUT http://localhost:8080/api/addresses/27
+PUT http://localhost:8080/api/address/27
 Content-Type:application/json
 
 {
@@ -22,10 +22,10 @@ Content-Type:application/json
 
 ### DELETE address by ID
 
-DELETE http://localhost:8080/api/addresses/27
+DELETE http://localhost:8080/api/address/27
 
 ### Create New Address
-POST http://localhost:8080/api/addresses
+POST http://localhost:8080/api/address
 Content-Type: application/json
 
 {
@@ -38,4 +38,4 @@ Content-Type: application/json
 
 ### GET address by id
 
-GET http://localhost:8080/api/addresses/1
+GET http://localhost:8080/api/address/44

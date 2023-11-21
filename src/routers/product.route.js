@@ -9,5 +9,5 @@ module.exports = (app) => {
 
   router.put("/:id", products.update)
 
-  app.use("/api/products", router);
+  app.use("/api/product", router);
 };
