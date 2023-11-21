@@ -13,5 +13,5 @@ module.exports = (app) => {
   
   router.put("/:id", customers.update);
 
-  app.use("/api/customers", router);
+  app.use("/api/customer", router);
 };

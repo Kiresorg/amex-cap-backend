@@ -1,6 +1,6 @@
 ### GET orders
 
-GET http://localhost:8080/api/orders
+GET http://localhost:8080/api/order
 
 
 ### GET orders by ID
